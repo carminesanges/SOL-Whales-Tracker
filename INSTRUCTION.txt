@@ -1,44 +1,70 @@
 ========================================
-SOL/USDC WHALE TRACKER - INSTRUCTIONS
+WHALE TRACKER - INSTRUCTIONS
 ========================================
 
-This script tracks large trades (whales) for the SOL/USDC pair on Binance.
+This script tracks large trades (whales) for any trading pair on the Binance Spot market using real-time data. By default, it is configured to track SOL/USDC.
+
 Follow these steps to get it running on your Windows PC.
+
 
 ## Step 1: Install Python
 
 You need Python installed on your computer. If you don't have it, follow these instructions:
 
 1.  Go to the official Python website: https://www.python.org/downloads/
-2.  Download the latest version for Windows.
-3.  Run the installer. **IMPORTANT:** On the first screen of the installer, make sure to check the box that says "Add Python to PATH". This is crucial!
+2.  Download the latest stable version for Windows (e.g., Python 3.11).
+3.  Run the installer. **IMPORTANT:** On the first screen of the installer, make sure to check the box that says "Add Python to PATH". This is crucial for the next steps to work!
 
 
+## Step 2: Set Up the Script Folder
 
-## Step 2: Set Up the Script
+1.  Create a new folder on your computer where you want to store the script (for example, on your Desktop, name it `crypto_tracker`).
+2.  Download all the project files (`whale_tracker_solusdc.py`, `requirements.txt`, and this `INSTRUCTIONS.txt` file) and place them inside your new folder.
 
-1.  Create a new folder on your computer, for example, on your Desktop, and name it `crypto_tracker`.
-2.  Download the script file (`whale_tracker_solusdc.py`) and this `INSTRUCTIONS.txt` file into that new folder.
-3.  **(Optional but Recommended) Configure Telegram Alerts:**
-    * Open the `whale_tracker_solusdc.py` file with a text editor (like Notepad or VS Code).
-    * Find the "TELEGRAM CONFIG" section.
-    * Replace `"YOUR_BOT_TOKEN_HERE"` with your actual Telegram Bot Token from @BotFather.
-    * Replace `0` with your numerical Telegram Chat ID.
-    * Set `TELEGRAM_ENABLED` to `True`.
 
 ## Step 3: Install Required Libraries
 
+You need to install the libraries the script depends on. You can choose one of the two methods below.
+
+**Method A (Recommended): Using the requirements file**
+
 1.  Open the Command Prompt inside your new folder. A quick way to do this is to click on the folder's address bar, type `cmd`, and press Enter.
-2.  In the Command Prompt window that appears, copy and paste the following command, then press Enter:
+2.  In the Command Prompt window, copy and paste the following command, then press Enter:
+
+    pip install -r requirements.txt
+
+    This will automatically read the `requirements.txt` file and install the correct libraries.
+
+
+**Method B (Manual): Installing libraries one by one**
+
+1.  Open the Command Prompt inside your folder.
+2.  Copy and paste the following command, then press Enter:
 
     pip install requests websockets colorama
 
-    This will install the three libraries the script needs to work.
 
-## Step 4: Run the Script
+## Step 4: Configure the Script (Optional)
 
-You're all set! To start the tracker, just type the following command in the same Command Prompt window and press Enter:
+You can run the script with its default settings (tracking SOL/USDC) or customize it by editing the `whale_tracker_solusdc.py` file with a text editor (like Notepad).
+
+* **To Change the Trading Pair:**
+    Find the `SYMBOL` variable and change its value. For example, to track BTC/USDC:
+    `SYMBOL = "BTCUSDC"`
+
+* **To Enable Telegram Alerts:**
+    1.  Find the "TELEGRAM CONFIG" section.
+    2.  Set `TELEGRAM_ENABLED` to `True`.
+    3.  Replace `"YOUR_BOT_TOKEN_HERE"` with your actual Telegram Bot Token from @BotFather.
+    4.  Replace `0` with your numerical Telegram Chat ID.
+
+
+## Step 5: Run the Script
+
+You're all set! To start the tracker, type the following command in the same Command Prompt window and press Enter:
 
     python whale_tracker_solusdc.py
 
-The script will start running and printing live trade analysis to the console. To stop it, just press `CTRL + C`.
+The script will start running and printing live trade analysis to the console.
+
+To stop it, just press `CTRL + C` on your keyboard.
